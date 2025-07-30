@@ -18,7 +18,7 @@ const CodeBlock = ({ code }: { code: string }) => {
             />
           </svg>
         </div>
-        <button>Copy</button>
+        Copy
       </button>
     </div>
   );

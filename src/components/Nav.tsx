@@ -3,14 +3,15 @@ import {
   AvatarGroup,
   Flex,
   HStack,
-  Link,
   Button,
   IconButton,
   Avatar,
+  Span,
 } from "@chakra-ui/react";
 import { LuMoon, LuSun } from "react-icons/lu";
 import { useColorMode, useColorModeValue } from "@/components/ui/color-mode";
 import { NAVBAR_ITEMS } from "@/constant/navbar";
+import { Link as RouteLink } from "react-router-dom";
 
 const Nav = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -32,21 +33,20 @@ const Nav = () => {
       w="full"
     >
       <Box fontWeight="bold" fontSize="xl">
-        <Link href="/" textDecor="none">
-          QuickChat
-        </Link>
+        <Span>
+          <RouteLink to="/">QuickChat</RouteLink>
+        </Span>
       </Box>
 
       <HStack gap={8} display={{ base: "none", md: "flex" }}>
         {NAVBAR_ITEMS.map(({ label, path }) => (
-          <Link
+          <Span
             key={path}
-            href={path}
             color={path == "/" ? activeColor : undefined}
             _hover={{ textDecoration: "underline" }}
           >
-            {label}
-          </Link>
+            <RouteLink to={path}>{label}</RouteLink>
+          </Span>
         ))}
       </HStack>
 

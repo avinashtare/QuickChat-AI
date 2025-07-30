@@ -1,9 +1,9 @@
 import { Box, Skeleton, Tag } from "@chakra-ui/react";
 import { useColorMode, useColorModeValue } from "./ui/color-mode";
-import type { ChatMessage } from "@/types/chats";
+import type { TChatMessage } from "@/types/chats";
 import MarkDownBox from "./MarkDownBox";
 
-export const ChatBox = ({ role, message, id }: ChatMessage) => {
+export const ChatBox = ({ role, message, id }: TChatMessage) => {
   const isUser = role.toLowerCase() === "user";
   const { colorMode } = useColorMode();
 

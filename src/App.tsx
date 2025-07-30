@@ -1,8 +1,11 @@
 import { Provider } from "@/components/ui/provider";
-import { Home } from "@/pages/Home";
 import "@/css/markdown.css";
 import { useEffect } from "react";
 import { initPuter } from "@/services/puter";
+import { Box } from "@chakra-ui/react";
+import SideBar from "@/components/SideBar";
+import Nav from "@/components/Nav";
+import Routes from "@/Root.Routes";
 
 function App() {
   useEffect(() => {
@@ -13,7 +16,18 @@ function App() {
 
   return (
     <Provider>
-      <Home />
+      <Box minH="100vh" display="flex">
+        <SideBar />
+        <Box
+          width="-webkit-fill-available"
+          minH="100vh"
+          display="flex"
+          flexDirection="column"
+        >
+          <Nav />
+          <Routes />
+        </Box>
+      </Box>
     </Provider>
   );
 }

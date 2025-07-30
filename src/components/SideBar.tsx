@@ -63,7 +63,7 @@ const SideBar = () => {
             flexDirection="row"
             gap={2}
           >
-            <Image src="logo.png" width="50px" />
+            <Image src={window.location.origin + "/logo.png"} width="50px" />
             <ChevronsLeftRight
               onClick={() => setIsSideBarOpen(false)}
               style={{ background: colapsIconColor, borderRadius: "5px" }}
@@ -73,7 +73,7 @@ const SideBar = () => {
           </Box>
         ) : (
           <Box>
-            <Image src="logo.png" width="50px" />
+            <Image src={window.location.origin + "/logo.png"} width="50px" />
           </Box>
         )}
       </Box>
