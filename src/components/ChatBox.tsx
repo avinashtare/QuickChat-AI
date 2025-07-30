@@ -1,4 +1,4 @@
-import { Box, Tag } from "@chakra-ui/react";
+import { Box, Skeleton, Tag } from "@chakra-ui/react";
 import { useColorMode, useColorModeValue } from "./ui/color-mode";
 import type { ChatMessage } from "@/types/chats";
 import MarkDownBox from "./MarkDownBox";
@@ -45,6 +45,32 @@ export const ChatBox = ({ role, message, id }: ChatMessage) => {
           markDownString={message}
         />
       )}
+    </Box>
+  );
+};
+
+export const LoadingChatBox = () => {
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems={"flex-start"}
+      my={2}
+      px={2}
+    >
+      <Tag.Root size="sm" colorScheme={"gray"} mb={1}>
+        Assistant
+      </Tag.Root>
+      <Skeleton
+        variant="shine"
+        width="5"
+        borderRadius="50%"
+        height="5"
+        css={{
+          "--start-color": "colors.green.500",
+          "--end-color": "colors.blue.500",
+        }}
+      />
     </Box>
   );
 };

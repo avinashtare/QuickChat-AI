@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { LuMoon, LuSun } from "react-icons/lu";
 import { useColorMode, useColorModeValue } from "@/components/ui/color-mode";
+import { NAVBAR_ITEMS } from "@/constant/navbar";
 
 const Nav = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -31,26 +32,22 @@ const Nav = () => {
       w="full"
     >
       <Box fontWeight="bold" fontSize="xl">
-        Logo
+        <Link href="/" textDecor="none">
+          QuickChat
+        </Link>
       </Box>
 
       <HStack gap={8} display={{ base: "none", md: "flex" }}>
-        <Link
-          href="/"
-          color={activeColor}
-          _hover={{ textDecoration: "underline" }}
-        >
-          Home
-        </Link>
-        <Link href="/services" _hover={{ textDecoration: "underline" }}>
-          Services
-        </Link>
-        <Link href="/pricing" _hover={{ textDecoration: "underline" }}>
-          Pricing
-        </Link>
-        <Link href="/about" _hover={{ textDecoration: "underline" }}>
-          About
-        </Link>
+        {NAVBAR_ITEMS.map(({ label, path }) => (
+          <Link
+            key={path}
+            href={path}
+            color={path == "/" ? activeColor : undefined}
+            _hover={{ textDecoration: "underline" }}
+          >
+            {label}
+          </Link>
+        ))}
       </HStack>
 
       <HStack gap={4}>

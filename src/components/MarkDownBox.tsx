@@ -39,7 +39,13 @@ const MarkDownBox = React.memo(
         className={`${theme == "dark" ? "dark-mode" : "light-mode"}`}
         style={{ width }}
       >
-        <div className="markdown">
+        <div
+          className="markdown"
+          style={{
+            background: theme == "dark" ? "#0f0f0f" : "#faeaeaff",
+            borderRadius: "5px",
+          }}
+        >
           <ReactMarkdown
             components={{
               code({ node, className, children, ...props }: any) {
