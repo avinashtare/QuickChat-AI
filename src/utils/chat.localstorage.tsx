@@ -2,11 +2,11 @@ import type { TChatSession } from "@/types/chats";
 import { JsonParse } from "./utils";
 
 export const GetAllChatsId = (): string[] => {
-  // qchat:id
+  // c/id
   const allLocalStorageItems: string[] = [];
   for (let index = 0; index < localStorage.length; index++) {
     let item = localStorage.key(index);
-    if (item?.startsWith("qchat:")) {
+    if (item?.startsWith("c/")) {
       allLocalStorageItems.push(item);
     }
   }
@@ -14,7 +14,7 @@ export const GetAllChatsId = (): string[] => {
 };
 
 export const GetChat = (itemId: string): TChatSession | boolean => {
-  let itemData = localStorage.getItem("qchat:" + itemId);
+  let itemData = localStorage.getItem("c/" + itemId);
 
   let parseData = JsonParse<TChatSession>(itemData);
   if (parseData.success && parseData.data?.id === itemId) {
@@ -25,5 +25,5 @@ export const GetChat = (itemId: string): TChatSession | boolean => {
 
 export const SetChatSession = (ChatSessionObj: TChatSession): void => {
   let ChatSessionData = JSON.stringify(ChatSessionObj);
-  localStorage.setItem("qchat:" + ChatSessionObj.id, ChatSessionData);
+  localStorage.setItem("c/" + ChatSessionObj.id, ChatSessionData);
 };

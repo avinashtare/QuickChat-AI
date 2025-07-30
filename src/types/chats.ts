@@ -10,7 +10,7 @@ export type TChatSession = {
   title: string;
   createdAt: number;
   updatedAt: number;
-  messages: ChatMessage[];
+  messages: TChatMessage[];
 
   model?: string;
   isPinned?: boolean;

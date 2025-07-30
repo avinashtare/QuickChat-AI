@@ -1,11 +1,11 @@
-import type { ChatMessage } from "@/types/chats";
+import type { TChatMessage } from "@/types/chats";
 import type { AIChatResponse } from "@/types/puter";
 
 export const askAi = async ({
   chat,
 }: {
-  chat: ChatMessage[];
-}): Promise<ChatMessage | Error> => {
+  chat: TChatMessage[];
+}): Promise<TChatMessage | Error> => {
   return new Promise((reslove, reject) => {
     try {
       window.puter.ai.chat(JSON.stringify(chat)).then((e: AIChatResponse) => {
@@ -15,6 +15,7 @@ export const askAi = async ({
           id: Math.random(),
           role: aiData.role,
           message: aiData.content.trim(),
+          timestamp: Date.now(),
         });
       });
     } catch (error) {
