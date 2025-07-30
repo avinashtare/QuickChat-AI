@@ -7,6 +7,8 @@ import {
 } from "lucide-react";
 import { useColorModeValue } from "./ui/color-mode";
 import { useEffect, useState, type ReactNode } from "react";
+import { SideBar_ITEMS, type SideBarItems } from "@/constant/links.constant";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   const colapsIconColor = useColorModeValue("#ecececff", "#5e5c5c67");
@@ -86,37 +88,38 @@ const SideBar = () => {
         gap={2}
         onClick={(event) => event.stopPropagation()}
       >
-        <ShowIcon
-          title="Home"
-          children={<BadgePlus />}
-          isSideBarOpen={isSideBarOpen}
-        />
-        <ShowIcon
-          title="Search"
-          children={<Search />}
-          isSideBarOpen={isSideBarOpen}
-        />
-        <ShowIcon
-          title="Gallary"
-          children={<ImageIcon />}
-          isSideBarOpen={isSideBarOpen}
-        />
+        {SideBar_ITEMS.map(({ icon: Icon, isLink, label, path }) => (
+          <ShowIcon
+            key={label}
+            isLink={isLink}
+            path={path}
+            label={label}
+            isSideBarOpen={isSideBarOpen}
+          >
+            <Icon />
+          </ShowIcon>
+        ))}
       </Box>
     </Box>
   );
 };
 
+interface ShowIconProps extends Omit<SideBarItems, "icon"> {
+  children: React.ReactNode;
+  label: string;
+  isSideBarOpen: boolean;
+}
+
 const ShowIcon = ({
   children,
-  title,
+  label,
   isSideBarOpen,
-}: {
-  children: ReactNode;
-  title?: string;
-  isSideBarOpen: boolean;
-}) => {
+  isLink,
+  path,
+}: ShowIconProps) => {
   const borderHoverColor = useColorModeValue("#ecececff", "#5e5c5c67");
-  return (
+
+  const Content = (
     <Box
       display="flex"
       alignItems="center"
@@ -124,26 +127,30 @@ const ShowIcon = ({
       cursor="pointer"
       flexWrap="nowrap"
       flexDirection="row"
-      width="-webkit-fill-available"
+      width="100%"
       height="40px"
       padding={2}
       borderRadius="5px"
       _hover={{ background: borderHoverColor }}
     >
-      <Box display="flex" gap={4}>
+      <Box display="flex" gap={4} alignItems="center">
         {children}
-        <Span
-          opacity={isSideBarOpen ? "1" : "0"}
+        <span
           style={{
+            opacity: isSideBarOpen ? 1 : 0,
             transition: isSideBarOpen ? "opacity 2s ease" : "opacity 0.3s ease",
             pointerEvents: "none",
+            whiteSpace: "nowrap",
           }}
         >
-          {title}
-        </Span>
+          {label}
+        </span>
       </Box>
     </Box>
   );
+
+  // Wrap in a Link if needed
+  return isLink && path ? <Link to={path}>{Content}</Link> : Content;
 };
 
 export default SideBar;

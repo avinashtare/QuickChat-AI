@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { LuMoon, LuSun } from "react-icons/lu";
 import { useColorMode, useColorModeValue } from "@/components/ui/color-mode";
-import { NAVBAR_ITEMS } from "@/constant/navbar";
+import { NAVBAR_ITEMS } from "@/constant/links.constant";
 import { Link as RouteLink } from "react-router-dom";
 
 const Nav = () => {
