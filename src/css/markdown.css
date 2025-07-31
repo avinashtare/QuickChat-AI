@@ -123,6 +123,10 @@
   margin: 0 0 1rem 1.5rem;
   padding: 0;
 }
+.markdown ol li {
+  list-style-type: decimal;
+  margin: 0.25rem 0;
+}
 
 .markdown li {
   list-style: disc;

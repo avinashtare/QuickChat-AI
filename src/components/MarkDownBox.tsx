@@ -42,7 +42,7 @@ const MarkDownBox = React.memo(
         <div
           className="markdown"
           style={{
-            background: theme == "dark" ? "#0f0f0f" : "#faeaeaff",
+            background: theme == "dark" ? "#0f0f0f" : "#fcf6ecff",
             borderRadius: "5px",
           }}
         >
@@ -61,7 +61,9 @@ const MarkDownBox = React.memo(
                       <ShikiHighlighter
                         language={language}
                         theme={`${
-                          theme == "dark" ? "github-dark" : "github-light"
+                          theme == "dark"
+                            ? "github-dark-high-contrast"
+                            : "github-light-high-contrast"
                         }`}
                         addDefaultStyles
                       >

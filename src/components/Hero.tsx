@@ -1,7 +1,7 @@
-import Chat from "@/pages/Chat";
+import QuickChat from "@/components/QuickChat";
 
 const Hero = () => {
-  return <Chat />;
+  return <QuickChat />;
 };
 
 export default Hero;

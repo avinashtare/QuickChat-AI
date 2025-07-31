@@ -1,3 +1,24 @@
 body {
   overflow: hidden;
 }
+
+/* For modern browsers */
+.default-scroll {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #888 transparent;
+}
+
+/* For WebKit (Chrome, Edge, Safari) */
+.default-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.default-scroll::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.default-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
