@@ -221,19 +221,14 @@ const QuickChat = ({ id = "" }: { id?: string }) => {
         <Box marginBottom="15vh"></Box>
       </Container>
       <Box
-        position="absolute"
+        // position="absolute"
         bottom={0}
         paddingBottom={8}
         paddingTop={4}
         width="full"
         bg={bg}
       >
-        <Container
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          gap={5}
-        >
+        <Container gap={5}>
           <Box width="full" padding={5} rounded={10} display="flex" gap={5}>
             <Input
               value={inputValue}
