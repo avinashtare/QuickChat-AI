@@ -1,4 +1,4 @@
-# 🚀 QuickChat AI
+# 🚀 QuickChat AI Serverless Chat App
 
 <p align="center">
   <img src="https://img.shields.io/github/stars/avinashtare/QuickChat-AI?style=social" alt="GitHub stars" />
