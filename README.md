@@ -5,12 +5,10 @@
   <img src="https://img.shields.io/github/license/avinashtare/QuickChat-AI" alt="License" />
   <img src="https://img.shields.io/github/issues/avinashtare/QuickChat-AI" alt="Issues" />
 </p>
-<table width="100%">
-  <tr width="100%">
-    <td><img src="./sample/ui-dark.png" width="50%"/></td>
-    <td><img src="./sample/ui-light.png" width="50%"/></td>
-  </tr>
-</table>
+
+  <img src="./sample/ui-dark.png" width="100%"/>
+  <img src="./sample/ui-light.png" width="100%"/>
+
 # Introduction
 
 QuickChat AI is a modern, open-source, serverless chat application that leverages AI to deliver seamless, real-time conversations. Built on the Puter platform, it combines a sleek user interface with powerful backendless technology, making intelligent chat accessible, fast, and easy to deploy anywhere.
